@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_task1/Screens/login_screen.dart';
 import 'package:flutter_task1/Screens/phone/phone_page.dart';
 import 'package:flutter_task1/firebase_auth.dart';
+import 'package:flutter_task1/main.dart';
 import 'package:flutter_task1/my_textfield.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';

@@ -11,6 +11,8 @@ import 'package:flutter_task1/my_textfield.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
 
+import '../../main.dart';
+
 class PhonePage extends StatefulWidget {
   const PhonePage({Key? key}) : super(key: key);
 

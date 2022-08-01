@@ -6,6 +6,8 @@ import 'package:flutter_task1/firebase_auth.dart';
 import 'package:flutter_task1/my_textfield.dart';
 import 'package:get/get.dart';
 
+import '../main.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
