@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Screens/login_screen.dart';
-import 'package:flutter_task1/Screens/sign_up.dart';
 import 'package:flutter_task1/firebase_auth.dart';
-import 'package:flutter_task1/my_textfield.dart';
 import 'package:get/get.dart';
 
 import '../main.dart';

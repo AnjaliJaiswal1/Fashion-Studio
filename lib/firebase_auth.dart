@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -72,22 +74,27 @@ class FireAuth {
   }
 
   static Future<User?> googleSignup(BuildContext context) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleSignInAccount =
-        await googleSignIn.signIn();
-    if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-      final AuthCredential authCredential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken);
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      User? user;
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+        final AuthCredential authCredential = GoogleAuthProvider.credential(
+            idToken: googleSignInAuthentication.idToken,
+            accessToken: googleSignInAuthentication.accessToken);
 
-      // Getting users credential
-      UserCredential result = await auth.signInWithCredential(authCredential);
-      user = result.user;
-      return user;
+        // Getting users credential
+        UserCredential result = await auth.signInWithCredential(authCredential);
+        user = result.user;
+        log(user.toString());
+        return user;
+      }
+    } catch (e) {
+      log(e.toString());
     }
   }
 
@@ -129,7 +136,6 @@ class FireAuth {
     } finally {
       if (!hasError) {
         Get.defaultDialog(
-          
             title: "Reset password",
             middleText:
                 "Reset password link has been sent to your mail.\n Please check spam folder if not found");
@@ -150,15 +156,15 @@ class FireAuth {
 
   addUser({
     required String fullName,
-  
     required String email,
   }) async {
     try {
       CollectionReference users =
           FirebaseFirestore.instance.collection('users');
-      await users
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .set({'Name': fullName, 'email': email,});
+      await users.doc(FirebaseAuth.instance.currentUser!.uid).set({
+        'Name': fullName,
+        'email': email,
+      });
       print("success");
     } catch (e) {
       print(e);

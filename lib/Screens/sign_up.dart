@@ -249,6 +249,8 @@ class _SignUpState extends State<SignUp> {
                           name: namecontroller.text,
                           email: emailcontroller.text,
                           password: passcontroller.text);
+
+                      
                       FireAuth().addUser(
                           fullName: namecontroller.text,
                           email: emailcontroller.text);
@@ -320,6 +322,9 @@ class _SignUpState extends State<SignUp> {
                       onTap: () async {
                         User? user = await FireAuth.googleSignup(context);
                         if (user != null) {
+                          FireAuth().addUser(
+                          fullName: user.displayName.toString(),
+                          email: user.email.toString());
                           Get.to(HomePage());
                         }
                       },

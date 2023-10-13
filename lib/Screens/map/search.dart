@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -12,9 +11,8 @@ import 'package:get/get_core/get_core.dart';
 import 'package:google_api_headers/google_api_headers.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
-import 'package:http/http.dart';
 
-const kGoogleApiKey = '';
+const kGoogleApiKey = 'AIzaSyD2dcjAKRXXxaLn2WeatT69_RsW_loOOEg';
 
 class SearchPlace extends StatefulWidget {
   const SearchPlace({Key? key}) : super(key: key);
@@ -84,6 +82,7 @@ class _SearchPlaceState extends State<SearchPlace> {
     Prediction? p = await PlacesAutocomplete.show(
         context: context,
         apiKey: kGoogleApiKey,
+        
         onError: (value) {
           Get.snackbar(
               value.errorMessage.toString(), value.errorMessage.toString());

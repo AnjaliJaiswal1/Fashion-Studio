@@ -36,8 +36,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    log(height.toString());
-    log(height.toString());
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -241,8 +239,11 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
-                        onTap: () {
-                          FireAuth().signInWithFacebook();
+                        onTap: () async{
+                          UserCredential user =await FireAuth().signInWithFacebook();
+                          FireAuth().addUser(
+                          fullName: user.additionalUserInfo.toString(),
+                          email: user.additionalUserInfo.toString());
                           Get.to(HomePage());
                         },
                         child: SvgPicture.asset(
@@ -254,6 +255,9 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () async {
                           User? user = await FireAuth.googleSignup(context);
                           if (user != null) {
+                            FireAuth().addUser(
+                                fullName: user.displayName.toString(),
+                                email: user.email.toString());
                             Get.to(HomePage());
                           }
                         },

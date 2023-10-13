@@ -43,14 +43,14 @@ class _PhonePageState extends State<PhonePage> {
                   child: Image.asset("assets/Images/logo.png"),
                 ),
                 SizedBox(
-                  height: height10*3.8,
+                  height: height10 * 3.8,
                 ),
                 Text(
                   "Log in",
                   style: TextStyle(fontSize: 22),
                 ),
                 SizedBox(
-                  height: height10*3.3,
+                  height: height10 * 3.3,
                 ),
                 Form(
                     key: formkey,
@@ -81,32 +81,33 @@ class _PhonePageState extends State<PhonePage> {
                               prefixIcon: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  child: Center(child: SvgPicture.asset("assets/Images/phone.svg"),),
-                                  height: height10*4.5,
+                                  child: Center(
+                                    child: SvgPicture.asset(
+                                        "assets/Images/phone.svg"),
+                                  ),
+                                  height: height10 * 4.5,
                                   width: 48,
                                   decoration: BoxDecoration(
                                     color: Color.fromARGB(255, 250, 242, 240),
                                     borderRadius: BorderRadius.circular(10),
-                                    
                                   ),
                                 ),
                               )),
                         ),
                         SizedBox(
-                          height:height10 *1.6,
+                          height: height10 * 1.6,
                         ),
                       ],
                     )),
                 SizedBox(
-                  height: height10*10,
+                  height: height10 * 10,
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      if(formkey.currentState!.validate()){
+                      if (formkey.currentState!.validate()) {
                         Get.to(OtpVerification(
-                        phoneNumber: phonenumber.text,
-                      ));
-                      
+                          phoneNumber: phonenumber.text,
+                        ));
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -159,8 +160,8 @@ class _PhonePageState extends State<PhonePage> {
                           FireAuth().signInWithFacebook();
                           Get.to(HomePage());
                         },
-                        child: SvgPicture.asset("assets/socialmedia/facebook.svg")),
-                    
+                        child: SvgPicture.asset(
+                            "assets/socialmedia/facebook.svg")),
                     SizedBox(
                       width: 25,
                     ),
@@ -171,7 +172,8 @@ class _PhonePageState extends State<PhonePage> {
                             Get.to(HomePage());
                           }
                         },
-                        child:SvgPicture.asset("assets/socialmedia/google.svg")),
+                        child:
+                            SvgPicture.asset("assets/socialmedia/google.svg")),
                   ],
                 ),
                 SizedBox(

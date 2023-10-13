@@ -1,16 +1,10 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_task1/Screens/home_page.dart';
-import 'package:flutter_task1/firebase_auth.dart';
-import 'package:flutter_task1/my_textfield.dart';
 import 'package:get/get.dart';
 import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 
 import '../../main.dart';
@@ -86,7 +80,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: height10*5,
+                    height: height10 * 5,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -139,7 +133,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                         }),
                   ),
                   SizedBox(
-                    height: height10*2,
+                    height: height10 * 2,
                     // height: 20,
                   ),
                   Row(
@@ -170,7 +164,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                     ],
                   ),
                   SizedBox(
-                    height: height10*35,
+                    height: height10 * 35,
                     // height: 350,
                   ),
                   Center(
